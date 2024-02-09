@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de CV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #ff9800;
+        }
+
+        form {
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #333;
+            border: none;
+            color: #fff;
+        }
+
+        button {
+            background-color: #ff9800;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ff6600;
+        }
+
+        #cv-result {
+            margin-top: 20px;
+        }
+
+        .result-img {
+            width: 200px;
+            height: 200px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de CV</h1>
+    <form>
+        <label for="crit-dmg">CRIT DMG:</label>
+        <input type="number" id="crit-dmg" name="crit-dmg" step="0.01" required>
+        <br>
+        <label for="crit-rate">CRIT RATE:</label>
+        <input type="number" id="crit-rate" name="crit-rate" required>
+        <br>
+        <button type="button" onclick="calculateCV()">Calcular</button>
+    </form>
+    <div id="cv-result"></div>
+</body>
+</html>
+
+	
+			<!-- // Preloading de imágenes -->
+	<div style="display: none;">
+		<img src="https://i.ibb.co/2jmkrqN/imagen-1.jpg">
+		<img src="https://i.ibb.co/CzzJnc0/imagen-1.png">
+		<img src="https://i.ibb.co/Bs1NChH/imagen-2.png">
+		<img src="https://i.ibb.co/hXgxd47/imagen-3.png">
+		<img src="https://i.ibb.co/syLyvmc/imagen-4.png">
+		<img src="https://i.ibb.co/t2vRYqp/imagen-5.png">
+		<img src="https://i.ibb.co/qmsxptG/imagen-6.png">
+		<img src="https://i.ibb.co/BwmNZ8T/imagen-7.png">
+		<img src="https://i.ibb.co/RgzJYSS/imagen-8.png">
+		<img src="https://i.ibb.co/cNr2cPS/imagen-9.png">
+		<img src="https://i.ibb.co/DtFHC38/imagen-10.png">
+		<img src="https://i.ibb.co/GnB0yDf/imagen-god.png">
+	</div>
+
+	<script type="text/javascript">
+		function calculateCV() {
+			// Obtener valores de entrada
+			var critDmg = parseFloat(document.getElementById("crit-dmg").value);
+			var critRate = parseInt(document.getElementById("crit-rate").value);
+
+			// Calcular el Crit Value
+			var critValue = critDmg + (critRate * 2);
+
+			// Mostrar el resultado
+			var resultDiv = document.getElementById("cv-result");
+			resultDiv.innerHTML = "<p>TU CV es: " + critValue + "</p>";
+
+			// Mostrar imagen según el resultado de CV
+			var imgSrc;
+			if (critValue >=  0 && critValue <= 5) {
+				imgSrc = "https://i.ibb.co/2jmkrqN/imagen-1.jpg";
+			} else if (critValue >= 5 && critValue <= 10) {
+				imgSrc = "https://i.ibb.co/CzzJnc0/imagen-1.png";
+			} else if (critValue >= 11 && critValue <= 20) {
+				imgSrc = "https://i.ibb.co/Bs1NChH/imagen-2.png";
+			} else if (critValue >= 21 && critValue <= 30) {
+				imgSrc = "https://i.ibb.co/hXgxd47/imagen-3.png";
+			} else if (critValue >= 31 && critValue <= 40) {
+				imgSrc = "https://i.ibb.co/syLyvmc/imagen-4.png";
+			} else if (critValue >= 41 && critValue <= 50) {
+				imgSrc = "https://i.ibb.co/t2vRYqp/imagen-5.png";
+			} else if (critValue >= 51 && critValue <= 60) {
+				imgSrc = "https://i.ibb.co/qmsxptG/imagen-6.png";
+			} else if (critValue >= 61 && critValue <= 70) {
+				imgSrc = "https://i.ibb.co/BwmNZ8T/imagen-7.png";
+			} else if (critValue >= 71 && critValue <= 80) {
+				imgSrc = "https://i.ibb.co/RgzJYSS/imagen-8.png";	
+			} else if (critValue >= 81 && critValue <= 90) {
+				imgSrc = "https://i.ibb.co/cNr2cPS/imagen-9.png";	
+			} else if (critValue >= 91 && critValue <= 100) {
+				imgSrc = "https://i.ibb.co/DtFHC38/imagen-10.png";	
+			} else if (critValue >= 101 && critValue <= 1000) {
+				imgSrc = "https://i.ibb.co/GnB0yDf/imagen-god.png";	
+				}
+			resultDiv.innerHTML += '<img class="result-img" src="' + imgSrc + '">';
+		}
+	</script>
+</body>
+</html>
+		
